@@ -1,6 +1,6 @@
 # ctypes-numpy-example
 
-A simple example of creating a python module using C or C++ code.
+A simple example of creating a python module using C or C++ code. Particularly, this repository shows how to pass a numpy array to a C function, and vice versa.
 
 Folder [simplest](simplest) contains a minimum working example of calling a C function from a Python program. 
 
