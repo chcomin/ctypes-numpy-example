@@ -31,7 +31,10 @@ void apply_print(int* arr_in, unsigned int* shape) {
 
 /**
   Multiply input array by a given integer factor. The output is calculated as
-  arr_out[i] = factor*arr_in[i]
+  arr_out[i] = factor*arr_in[i].
+  The function loops over rows and columns but index the arrays as 1D. This is 
+  done only to show that we can use the shape parameter for obtaining the number
+  of rows and columns of the array.
 
   Parameters
   ---------
