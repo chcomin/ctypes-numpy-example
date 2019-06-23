@@ -5,26 +5,32 @@ import ctypes as ct
 # Import module
 mymodule = npct.load_library('libpymodule', '.')
 
-# Define the arguments accepted by the C functions. This is not strictly necessary,
-# but it is good practice for avoiding segmentation faults. 
-npflags = ['C_CONTIGUOUS']   # Require a C contiguous array in memory
-uint_1d_type = npct.ndpointer(dtype=np.uint32, ndim=1, flags=npflags)
-int_2d_type = npct.ndpointer(dtype=np.int32, ndim=2, flags=npflags)
-args = [int_2d_type,
-        uint_1d_type,     
-       ]
-mymodule.print.argtypes = args
+def define_arguments():
+    ''' Convenience function for defining the arguments of the functions
+        inside the imported module. '''
 
-args = [int_2d_type,
-        ct.c_int,      # Integer type
-        int_2d_type,
-        uint_1d_type
-       ]
-mymodule.multiply.argtypes = args
+    # Define the arguments accepted by the C functions. This is not strictly necessary,
+    # but it is good practice for avoiding segmentation faults. 
+    npflags = ['C_CONTIGUOUS']   # Require a C contiguous array in memory
+    uint_1d_type = npct.ndpointer(dtype=np.uint32, ndim=1, flags=npflags)
+    int_2d_type = npct.ndpointer(dtype=np.int32, ndim=2, flags=npflags)
+    args = [int_2d_type,
+            uint_1d_type,     
+    ]
+    mymodule.print.argtypes = args
 
-# Define return type of the C fucntions. Also not necessary, but good practice.
-mymodule.print.restype = ct.c_int
-mymodule.multiply.restype = ct.c_int
+    args = [int_2d_type,
+            ct.c_int,      # Integer type
+            int_2d_type,
+            uint_1d_type
+    ]
+    mymodule.multiply.argtypes = args
+
+    # Define return type of the C fucntions. Also not necessary, but good practice.
+    mymodule.print.restype = ct.c_int
+    mymodule.multiply.restype = ct.c_int
+    
+define_arguments()
 
 # Generate some numpy array
 N = 5
