@@ -14,3 +14,5 @@ Folder [reference](reference) contains a reference example using good practices 
 2. cd into directory "simplest" or "reference"
 3. run "make"
 4. call "python script.py"
+
+There are many other approaches for integrating C/C++ code and Python, such as [Cython](https://cython.org/), [CFFI](https://cffi.readthedocs.io/en/latest/), [pybind11](https://pybind11.readthedocs.io/en/master/) and [Boost.Python](https://www.boost.org/doc/libs/1_70_0/libs/python/doc/html/index.html). If your interface between Python and C/C++ is really thin, that is, all you want to do is send some matrix to a C/C++ program, run some heavy calculation, and get the data back to Python, then I think ctypes is a great solution. It is a standard library and requires very little additional code. For other uses cases, the other approaches should be preferred.
