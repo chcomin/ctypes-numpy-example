@@ -2,7 +2,6 @@ import numpy as np
 import numpy.ctypeslib as npct
 import ctypes as ct
 
-# Import module
 mymodule = npct.load_library('libpymodule', '.')
 
 def define_arguments():
