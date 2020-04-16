@@ -5,7 +5,7 @@
 
 #include "functions.h"
 
-/* Very if __cplusplus is defined, so that only C++ compilers will
+/* Verify if __cplusplus is defined, so that only C++ compilers will
     see the extern "C" command */
 #ifdef __cplusplus
 /* extern "C" is used for defining C code when compiling with a C++ compiler.
